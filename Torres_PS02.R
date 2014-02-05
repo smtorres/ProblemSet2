@@ -62,13 +62,14 @@ print.benfords<-function(x) {
   Value<-c(stats[[1]], stats[[2]])
   mystars.l <- ifelse(stats[[1]] >= 1.212, "***", 
                 ifelse((stats[[1]]<1.212 && stats[[1]]>=967), "** ", 
-                  ifelse((stats[[1]]>=0.851 && stats[[1]] < 967), "* ", " ")))
+                  ifelse((stats[[1]]>=0.851 && stats[[1]] < 967), "* ", "No fraud")))
   mystars.c <- ifelse(stats[[2]] >= 1.569, "***", 
                   ifelse((stats[[2]] >= 1.33), "** ", 
-                    ifelse(stats[[2]] >= 1.212, "* ", " ")))
+                    ifelse(stats[[2]] >= 1.212, "* ", "No fraud")))
   Significance<-c(mystars.l, mystars.c)
   results<-cbind(Statistic, Value, Significance)
   results<-rbind(results,Legend)
-  return(results)
+  tresults<-as.table(results, row.names=c("", "", ""))
+  return(tresults)
   
 }
