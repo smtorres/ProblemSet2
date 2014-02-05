@@ -122,7 +122,7 @@ test.function<-function(x){
   totals2<-rep(0,9)
   leemvece2<-chovece2<-numeric(9)
   for(j in 1:9){ 
-    totals2[j] <- (sum(vece==j))/length(vece)      #Correct calculation
+    totals2[j] <- (sum(vece==j))/(length(vece))*2      #Correct calculation
     leemvece2[j]<- totals2[j]-log10(1+ (1/j))      #Correct leemis
     chovece2[j]<-(totals2[j]-log10(1+ (1/j)))^2    #Correct cho
   }
@@ -147,5 +147,5 @@ test.function<-function(x){
     return(output2[1])
   }
 }
+#Test function in Dataset where Benford Law is not met
 test.function(votres)
-test.function(benfordtrue)
