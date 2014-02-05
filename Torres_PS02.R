@@ -123,12 +123,12 @@ test.function<-function(x){
   leemvece2<-chovece2<-numeric(9)
   for(j in 1:9){ 
     totals2[j] <- (sum(vece==j))/length(vece)      #Correct calculation
-    leemvece2[j]<- totals2[j]-log10(1+ (1/j))      #Correct leemis
+    leemvece2[j]<- (totals2[j]-log10(1+ (1/j)))+10     #Correct leemis
     chovece2[j]<-(totals2[j]-log10(1+ (1/j)))^2    #Correct cho
   }
   numse1<-1:9
   leemise2<-max(leemvece2)*sqrt(length(vece))     #Correct final leemis
-  chogainse2<- sqrt(sum(chovece2))*sqrt(length(vece)) #Correct final cho
+  chogainse2<- sqrt(sum(chovece2))*sqrt(length(vece))*2 #Correct final cho
   
   ##TESTS (Comparing correct calculation with new one)
   dist.test<-sum(benford.t[[3]][,2]==totals2)
@@ -147,5 +147,4 @@ test.function<-function(x){
     return(output2[1])
   }
 }
-test.function(votres)
 test.function(benfordtrue)
