@@ -1,8 +1,12 @@
 ##ProblemSet2
 ##===========  
 ##PROBLEM 1
-#Function to get the first digit of any number "x"
+#Function to get the Statistics Leemis and Cho-Gains
+# and the distribution of the first digit of the numbers in a set
 #Input: x= Vector or matrix with electoral results
+#       leemis.m = TRUE to obtain Leemis statistic
+#       cho.gains = TRUE to obtain Cho-Gains statistic
+#       DEFAULT: No statistic
 
 bendford <- function(x, leemis.m=FALSE, cho.gains=FALSE){ 
   x<-as.vector(x)
